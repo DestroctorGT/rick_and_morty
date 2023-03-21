@@ -2,10 +2,10 @@ import "./App.css";
 import { useState } from "react";
 import axios from "axios";
 import { Routes, Route } from "react-router-dom";
-import Cards from "./Components/Cards.jsx";
-import Nav from "./Components/Nav";
-import About from "./Components/About";
-import Detail from "./Components/Detail";
+import Cards from "./Components/Cards/Cards";
+import Nav from "./Components/Nav/Nav";
+import About from "./Components/About/About";
+import Detail from "./Components/Detail/Detail";
 
 function App() {
   const [characters, setCharacters] = useState([]);
