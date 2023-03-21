@@ -6,7 +6,7 @@ export default function Cards({ characters, onClose }) {
       {characters &&
         characters.map((e, index) => {
           return (
-            <div key={index}>
+            <article className="card-container" key={index}>
               <Card
                 id={e.id}
                 name={e.name}
@@ -15,7 +15,7 @@ export default function Cards({ characters, onClose }) {
                 image={e.image}
                 onClose={onClose}
               />
-            </div>
+            </article>
           );
         })}
     </>
