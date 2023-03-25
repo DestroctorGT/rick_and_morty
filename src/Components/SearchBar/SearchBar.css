@@ -1,0 +1,23 @@
+.searchBar__input {
+  padding: 6px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+.searchBar__button {
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: black;
+}
+
+.searchBar__button--add {
+  border: 2px solid rgb(33, 189, 33);
+}
+
+.searchBar__button--random {
+  border: 2px solid rgb(255, 9, 9);
+}
