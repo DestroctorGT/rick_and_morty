@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/");
-  }, [access]);
+  }, [access, navigate]);
 
   function SignIn(userData) {
     if (
