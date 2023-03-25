@@ -5,7 +5,12 @@
   align-items: center;
   justify-content: space-between;
   list-style-type: none;
-  background-color: #d7dbe5;
+  background-color: #d7dbe5ef;
+  border-radius: 0px 0px 5px 5px;
+}
+
+.navbar__disable-inputs {
+  display: none;
 }
 
 .navbar__logo {

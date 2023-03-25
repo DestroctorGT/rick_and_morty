@@ -2,9 +2,11 @@ import React from "react";
 import "../Nav/Nav.css";
 import Logo from "../../Assets/Rick-and-Morty.png";
 import SearchBar from "../SearchBar/SearchBar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Nav({ onSearch, onRandom }) {
+  const location = useLocation();
+
   return (
     <nav>
       <ul className="navbar">
@@ -16,13 +18,23 @@ export default function Nav({ onSearch, onRandom }) {
         </li>
 
         <li>
-          <ul className="navbar navbar__input">
-            <SearchBar onSearch={onSearch} />
+          <ul
+            className={
+              location.pathname === "/"
+                ? "navbar__disable-inputs"
+                : "navbar navbar__input"
+            }>
+            <SearchBar onSearch={onSearch} onRandom={onRandom} />
           </ul>
         </li>
 
         <li>
-          <ul className="navbar navbar__buttons">
+          <ul
+            className={
+              location.pathname === "/"
+                ? "navbar__disable-inputs"
+                : "navbar navbar__buttons"
+            }>
             <li>
               <Link to="/home">
                 <button>Home</button>
