@@ -11,13 +11,19 @@
   border-radius: 5px;
   text-decoration: none;
   text-transform: uppercase;
+  font-weight: bold;
+  font-size: 15px;
   color: black;
+  border: 2px solid black;
+  transition: 0.3s;
 }
 
-.searchBar__button--add {
-  border: 2px solid rgb(33, 189, 33);
+.searchBar__button--add:hover {
+  transition: 0.3s;
+  border: 2px solid #21bd21;
 }
 
-.searchBar__button--random {
-  border: 2px solid rgb(255, 9, 9);
+.searchBar__button--random:hover {
+  transition: 0.3s;
+  border: 2px solid #ff0909;
 }
