@@ -1,0 +1,14 @@
+.card-container {
+  padding: 10px;
+  border-radius: 1rem;
+  background: linear-gradient(to left, #f7ba2b 0%, #ea5358 100%);
+}
+
+article {
+  margin: 5px;
+  padding: 8px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 15px;
+}
