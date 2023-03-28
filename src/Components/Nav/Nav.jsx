@@ -37,14 +37,18 @@ export default function Nav({ onSearch, onRandom }) {
             }>
             <li>
               <Link to="/home">
-                <button>Home</button>
+                <button className="navbar__button">Home</button>
               </Link>
             </li>
 
             <li>
               <Link to="/about">
-                <button>About</button>
+                <button className="navbar__button">About</button>
               </Link>
+            </li>
+
+            <li>
+              <button className="navbar__button">Log Out</button>
             </li>
           </ul>
         </li>
