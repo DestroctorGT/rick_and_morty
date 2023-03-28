@@ -24,14 +24,21 @@
 }
 
 .login-form__button {
-  padding: 8px;
-  border: 0;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding: 15px 90px;
+  color: #fff;
+  letter-spacing: 4px;
+  font-size: 24px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  border-radius: 7px;
+  border: none;
   background-color: #ffb703;
 }
 
 .login-form__button:hover {
-  transition: 0.1s;
-  border: 2px solid #283618;
+  background: #d19c14;
+  box-shadow: 0 0 10px #d19c14, 0 0 40px #d19c14, 0 0 80px#D19C14;
+  transition: 1s;
+  color: #fff;
 }
