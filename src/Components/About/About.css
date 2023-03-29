@@ -1,0 +1,56 @@
+.cardAbout-container {
+  margin: 2%;
+  display: flex;
+  justify-content: center;
+}
+
+.card-about div,
+img {
+  z-index: 1;
+  color: #fff;
+}
+
+.card-about {
+  width: 45%;
+  height: auto;
+  background: #07182e;
+  position: relative;
+  display: flex;
+  flex-flow: row;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.card-about::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  background-image: linear-gradient(
+    180deg,
+    rgb(0, 183, 255),
+    rgb(255, 48, 255)
+  );
+  height: 130%;
+  animation: rotBGimg 3s linear infinite;
+  transition: all 0.2s linear;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.card-about::after {
+  content: "";
+  position: absolute;
+  background: #07182e;
+  inset: 5px;
+  border-radius: 15px;
+}
