@@ -19,12 +19,6 @@
   height: auto;
 }
 
-.navbar__input {
-  gap: 25px;
-  background-color: transparent;
-  justify-content: center;
-}
-
 .navbar__buttons {
   margin: 0px 15px;
   gap: 25px;

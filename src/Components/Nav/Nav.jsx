@@ -7,7 +7,6 @@ import { Link, useLocation } from "react-router-dom";
 export default function Nav({ onSearch, onRandom, logOut }) {
   const location = useLocation();
 
-  console.log(logOut);
   return (
     <nav>
       <ul className="navbar">
@@ -19,14 +18,7 @@ export default function Nav({ onSearch, onRandom, logOut }) {
         </li>
 
         <li>
-          <ul
-            className={
-              location.pathname === "/"
-                ? "navbar__disable-inputs"
-                : "navbar navbar__input"
-            }>
-            <SearchBar onSearch={onSearch} onRandom={onRandom} />
-          </ul>
+          <SearchBar onSearch={onSearch} onRandom={onRandom} />
         </li>
 
         <li>
