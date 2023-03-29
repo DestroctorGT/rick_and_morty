@@ -33,6 +33,11 @@ function App() {
     }
   }
 
+  function logOut() {
+    setAccess(false);
+    navigate("/");
+  }
+
   function onSearch(id) {
     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
       ({ data }) => {
@@ -65,7 +70,7 @@ function App() {
 
   return (
     <div className="App">
-      <Nav onSearch={onSearch} onRandom={onRandom} />
+      <Nav onSearch={onSearch} onRandom={onRandom} logOut={logOut} />
       <Routes>
         <Route path="/" element={<Login SignIn={SignIn} />}></Route>
         <Route

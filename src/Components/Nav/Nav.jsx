@@ -4,9 +4,10 @@ import Logo from "../../Assets/Rick-and-Morty.png";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Nav({ onSearch, onRandom }) {
+export default function Nav({ onSearch, onRandom, logOut }) {
   const location = useLocation();
 
+  console.log(logOut);
   return (
     <nav>
       <ul className="navbar">
@@ -48,7 +49,9 @@ export default function Nav({ onSearch, onRandom }) {
             </li>
 
             <li>
-              <button className="navbar__button">Log Out</button>
+              <button className="navbar__button" onClick={logOut}>
+                Log Out
+              </button>
             </li>
           </ul>
         </li>
