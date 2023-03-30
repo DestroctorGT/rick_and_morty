@@ -20,8 +20,16 @@ h2 {
   border-radius: 0.7rem;
 }
 
+.button__container {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
 .card__button {
-  padding: 1em 2em;
+  padding: 8px;
   position: relative;
   display: flex;
   justify-content: center;
