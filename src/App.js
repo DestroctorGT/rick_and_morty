@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login";
 import Cards from "./Components/Cards/Cards";
 import About from "./Components/About/About";
 import Detail from "./Components/Detail/Detail";
+import Favorites from "./Components/myFavorites/Favorites";
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -76,6 +77,10 @@ function App() {
         <Route
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}></Route>
+
+        <Route
+          path="/favorites"
+          element={<Favorites onClose={onClose}></Favorites>}></Route>
 
         <Route path="/about" element={<About />}></Route>
 

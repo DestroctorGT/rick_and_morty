@@ -35,6 +35,12 @@ export default function Nav({ onSearch, onRandom, logOut }) {
             </li>
 
             <li>
+              <Link to="/favorites">
+                <button className="navbar__button">My Favorites</button>
+              </Link>
+            </li>
+
+            <li>
               <Link to="/about">
                 <button className="navbar__button">About</button>
               </Link>
