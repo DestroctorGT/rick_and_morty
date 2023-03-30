@@ -14,7 +14,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
 
     case REMOVE_FAV:
       const newFavorites = state.myFavorites.filter(
-        (char) => char.id !== payload.id
+        (char) => char.id !== payload
       );
       return {
         ...state,
