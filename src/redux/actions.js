@@ -1,4 +1,18 @@
-import { ADD_FAV, REMOVE_FAV } from "./types";
+import { ADD_CHAR, ADD_FAV, REMOVE_FAV, REMOVE_CHAR } from "./types";
+
+export function addCharacter(char) {
+  return {
+    type: ADD_CHAR,
+    payload: char,
+  };
+}
+
+export function removeCharacter(id) {
+  return {
+    type: REMOVE_CHAR,
+    payload: id,
+  };
+}
 
 export function addFav(character) {
   return {

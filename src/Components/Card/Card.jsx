@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { addFav, removeFav } from "../../redux/actions";
+import { addFav, removeFav, removeCharacter } from "../../redux/actions";
 import "../Card/Card.css";
 
 export function Card({
@@ -12,10 +12,10 @@ export function Card({
   gender,
   origin,
   image,
-  onClose,
   addFav,
   removeFav,
   myFavorites,
+  removeCharacter,
 }) {
   const [isFav, setIsFav] = useState(false);
 
@@ -35,6 +35,10 @@ export function Card({
       setIsFav(true);
       addFav({ id, name, status, species, gender, origin, image });
     }
+  }
+
+  function onClose(id) {
+    removeCharacter(id);
   }
 
   let renderGender = "";
@@ -97,6 +101,7 @@ export function Card({
 
 export function mapStateToProps(state) {
   return {
+    character: state.characters,
     myFavorites: state.myFavorites,
   };
 }
@@ -104,6 +109,7 @@ export function mapStateToProps(state) {
 export function mapDispatchToProps(dispatch) {
   return {
     addFav: (character) => dispatch(addFav(character)),
+    removeCharacter: (id) => dispatch(removeCharacter(id)),
     removeFav: (id) => dispatch(removeFav(id)),
   };
 }

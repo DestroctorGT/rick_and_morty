@@ -4,7 +4,7 @@ import Logo from "../../Assets/Rick-and-Morty.png";
 import SearchBar from "../SearchBar/SearchBar";
 import { Link, useLocation } from "react-router-dom";
 
-export default function Nav({ onSearch, onRandom, logOut }) {
+export default function Nav({ logOut }) {
   const location = useLocation();
 
   return (
@@ -18,7 +18,7 @@ export default function Nav({ onSearch, onRandom, logOut }) {
         </li>
 
         <li>
-          <SearchBar onSearch={onSearch} onRandom={onRandom} />
+          <SearchBar />
         </li>
 
         <li>
