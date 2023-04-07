@@ -1,4 +1,10 @@
-import { ADD_CHAR, ADD_FAV, REMOVE_FAV, REMOVE_CHAR } from "./types";
+import {
+  ADD_CHAR,
+  ADD_RANDOM,
+  ADD_FAV,
+  REMOVE_FAV,
+  REMOVE_CHAR,
+} from "./types";
 
 const initialState = {
   characters: [],
@@ -8,6 +14,12 @@ const initialState = {
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case ADD_CHAR:
+      return {
+        ...state,
+        characters: [...state.characters, payload],
+      };
+
+    case ADD_RANDOM:
       return {
         ...state,
         characters: [...state.characters, payload],

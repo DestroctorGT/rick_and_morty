@@ -1,11 +1,10 @@
 import { useState } from "react";
-import axios from "axios";
 import { useLocation } from "react-router-dom";
 import { connect } from "react-redux";
-import { addCharacter } from "../../redux/actions";
+import { addCharacter, addRandomCharacter } from "../../redux/actions";
 import styleSearch from "../SearchBar/SearchBar.module.css";
 
-export function SearchBar({ addCharacter }) {
+export function SearchBar({ addCharacter, addRandomCharacter }) {
   const [inputValue, setInputValue] = useState("");
 
   const location = useLocation();
@@ -23,29 +22,11 @@ export function SearchBar({ addCharacter }) {
   }
 
   function onSearch(id) {
-    axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-      ({ data }) => {
-        if (data.name) {
-          addCharacter(data);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
-      }
-    );
+    addCharacter(id);
   }
 
   function onRandom() {
-    let randomCh = Math.floor(Math.random() * 825);
-
-    axios(`https://rickandmortyapi.com/api/character/${randomCh}`).then(
-      ({ data }) => {
-        if (data.name) {
-          addCharacter(data);
-        } else {
-          window.alert("¡No hay personajes con este ID!");
-        }
-      }
-    );
+    addRandomCharacter();
   }
 
   return (
@@ -87,6 +68,7 @@ export function SearchBar({ addCharacter }) {
 export function mapDispatchToProps(dispatch) {
   return {
     addCharacter: (char) => dispatch(addCharacter(char)),
+    addRandomCharacter: () => dispatch(addRandomCharacter()),
   };
 }
 

@@ -1,9 +1,32 @@
-import { ADD_CHAR, ADD_FAV, REMOVE_FAV, REMOVE_CHAR } from "./types";
+import {
+  ADD_CHAR,
+  ADD_RANDOM,
+  ADD_FAV,
+  REMOVE_FAV,
+  REMOVE_CHAR,
+} from "./types";
+import axios from "axios";
 
-export function addCharacter(char) {
-  return {
-    type: ADD_CHAR,
-    payload: char,
+export function addCharacter(id) {
+  return async function (dispatch) {
+    let response = await axios(
+      `https://rickandmortyapi.com/api/character/${id}`
+    );
+    return dispatch({ type: ADD_CHAR, payload: response.data });
+  };
+}
+
+export function addRandomCharacter() {
+  return async function (dispatch) {
+    let randomCh = Math.floor(Math.random() * 825);
+
+    let response = await axios(
+      `https://rickandmortyapi.com/api/character/${randomCh}`
+    );
+
+    console.log(response.data);
+
+    return dispatch({ type: ADD_RANDOM, payload: response.data });
   };
 }
 
