@@ -3,7 +3,7 @@ require("dotenv").config();
 const DB_EMAIL = process.env.EMAIL;
 const DB_PASSWORD = process.env.PASSWORD;
 
-const login = function login(req, res) {
+const login = function (req, res) {
   const { email, password } = req.query;
 
   if (DB_EMAIL === email && DB_PASSWORD === password) {

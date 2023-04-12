@@ -3,7 +3,7 @@ require("dotenv").config(); // process.env
 
 const URL = process.env.API_URL;
 
-const addCharacterById = function getCharById(req, res) {
+const addCharacterById = function (req, res) {
   const { id } = req.params;
 
   axios.get(`${URL}${id}`).then(({ data }) => {
