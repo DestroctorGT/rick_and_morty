@@ -1,23 +1,28 @@
-var http = require("http");
-var getCharById = require("./controllers/getCharById");
+const express = require("express");
+const app = express();
+const Router = require("./routes/index");
 
-const PORT = 3001;
+require("dotenv").config();
 
-http
-  .createServer(function (req, res) {
-    res.setHeader("Access-Control-Allow-Origin", "*");
+const PORT = process.env.PORT || 3001;
 
-    const url = req.url.split("/");
-    const param1 = url[1];
-    const param2 = url[2];
-    const id = url[3];
+const urlencoded = express.urlencoded({ extended: false });
 
-    if (param1 === "rickandmorty" && param2 === "character") {
-      if (id) {
-        getCharById(res, id);
-      }
-    }
-  })
-  .listen(PORT, () => {
-    console.log("In port http://localhost:3001");
-  });
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
+  next();
+});
+
+app.use(express.json());
+
+app.use("/rickandmorty", Router);
+
+app.listen(PORT, () => {
+  console.log(`In port: http://localhost:${PORT}`);
+});
