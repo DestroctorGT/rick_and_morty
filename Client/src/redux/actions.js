@@ -10,7 +10,7 @@ import axios from "axios";
 export function addCharacter(id) {
   return async function (dispatch) {
     let response = await axios(
-      `https://rickandmortyapi.com/api/character/${id}`
+      `http://localhost:3001/rickandmorty/character/${id}`
     );
     return dispatch({ type: ADD_CHAR, payload: response.data });
   };
@@ -21,10 +21,8 @@ export function addRandomCharacter() {
     let randomCh = Math.floor(Math.random() * 825);
 
     let response = await axios(
-      `https://rickandmortyapi.com/api/character/${randomCh}`
+      `http://localhost:3001/rickandmorty/character/${randomCh}`
     );
-
-    console.log(response.data);
 
     return dispatch({ type: ADD_RANDOM, payload: response.data });
   };
@@ -38,15 +36,22 @@ export function removeCharacter(id) {
 }
 
 export function addFav(character) {
-  return {
-    type: ADD_FAV,
-    payload: character,
+  return async function (dispatch) {
+    let response = await axios.post(
+      "http://localhost:3001/rickandmorty/fav",
+      character
+    );
+
+    return dispatch({ type: ADD_FAV, payload: response.data });
   };
 }
 
 export function removeFav(id) {
-  return {
-    type: REMOVE_FAV,
-    payload: id,
+  return async function (dispatch) {
+    let response = await axios.delete(
+      `http://localhost:3001/rickandmorty/fav/${id}`
+    );
+
+    return dispatch({ type: REMOVE_FAV, payload: response.data });
   };
 }

@@ -40,16 +40,13 @@ const rootReducer = (state = initialState, { type, payload }) => {
     case ADD_FAV:
       return {
         ...state,
-        myFavorites: [...state.myFavorites, payload],
+        myFavorites: payload,
       };
 
     case REMOVE_FAV:
-      const newFavorites = state.myFavorites.filter(
-        (char) => char.id !== payload
-      );
       return {
         ...state,
-        myFavorites: newFavorites,
+        myFavorites: payload,
       };
 
     default:
