@@ -3,7 +3,17 @@ let myFavorites = [];
 const postFav = function (req, res) {
   const { id, status, name, species, origin, image, gender } = req.body;
 
-  myFavorites.push({ id, status, name, species, origin, image, gender });
+  const newObj = {
+    id,
+    status,
+    name,
+    species,
+    origin,
+    image,
+    gender,
+  };
+
+  myFavorites.push(newObj);
 
   res.status(200).json(myFavorites);
 };
