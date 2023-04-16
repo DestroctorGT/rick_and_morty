@@ -1,4 +1,5 @@
 import "./App.css";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Nav from "./Components/Nav/Nav";
@@ -13,21 +14,21 @@ function App() {
 
   const navigate = useNavigate();
 
-  const Email = "destroctorgt@gmail.com";
-
-  const PASSWORD = "Semeolvido1";
-
   useEffect(() => {
     !access && navigate("/");
   }, [access, navigate]);
 
-  function SignIn(userData) {
-    if (
-      userData.email.toString() === Email &&
-      userData.password.toString() === PASSWORD
-    ) {
+  async function SignIn(userData) {
+    let { data } = await axios(
+      `http://localhost:3001/rickandmorty/login?email=${userData.email}&password=${userData.password}`
+    );
+
+    if (data.access === true) {
       setAccess(true);
       navigate("/home");
+    } else {
+      setAccess(false);
+      navigate("/");
     }
   }
 
